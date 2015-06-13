@@ -1,0 +1,56 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "7b7f8e200ab896a473b6c5c3c878b02a",
+    "packages": [
+        {
+            "name": "irap/core-libs",
+            "version": "1.1.1",
+            "source": {
+                "type": "svn",
+                "url": "svn://svn.irap-dev.org/packages/core_libs",
+                "reference": "/tags/1.1.1/@58"
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "iRAP\\CoreLibs\\": ""
+                }
+            },
+            "license": [
+                "none"
+            ],
+            "authors": [
+                {
+                    "name": "Stuart Page",
+                    "email": "stuart.page@irap-dev.org",
+                    "homepage": "http://irap.org/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Core libraries for PHP 5.3+",
+            "homepage": "http://www.irap.org",
+            "keywords": [
+                "core",
+                "library"
+            ],
+            "time": "2015-04-24 11:11:12"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.3.0"
+    },
+    "platform-dev": []
+}
