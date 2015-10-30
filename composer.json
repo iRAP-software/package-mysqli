@@ -2,7 +2,7 @@
     "name": "irap/mysqli",
     "type": "library",
     "description": "Package for helping with Mysli",
-    "keywords": ["mysqli, mysql"],
+    "keywords": ["mysqli", "mysql"],
     "homepage": "http://www.irap.org/",
     "license": "MIT",
     "authors": [
