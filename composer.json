@@ -1,7 +1,7 @@
 {
     "name": "irap/mysqli",
     "type": "library",
-    "description": "Package for helping with Mysqli",
+    "description": "Package for helping with Mysql",
     "keywords": ["mysqli", "mysql"],
     "homepage": "http://www.irap.org/",
     "license": "MIT",
@@ -14,7 +14,8 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.3.0",
+        "irap/core-libs": "1.1.*"
     },
     "autoload": {
         "psr-4": {

@@ -82,7 +82,7 @@ class ConnectionHandler
             
             $errorMessage = json_encode($messageArray, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
             
-            throw new Exception($errorMessage);
+            throw new \Exception($errorMessage);
         };
         
         
@@ -182,7 +182,7 @@ class ConnectionHandler
     {
         if ($connectionName === null && count(self::$s_connectionDetails) > 0)
         {
-            throw new Exception('You need to specify which connection to close!');
+            throw new \Exception('You need to specify which connection to close!');
         }
         
         if ($connectionName === null && count(self::$s_connectionDetails) == 1)
