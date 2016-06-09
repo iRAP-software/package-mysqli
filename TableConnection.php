@@ -543,5 +543,69 @@ class TableConnection
         $result = $this->m_mysqli->query($query);
         return $result;
     }
+    
+    
+    /**
+     * Fetch the table in CSV form.
+     * @param string $includeHeaders - optional - set to false to not include the headers.
+     * @param array<string> - array of column names to order by (in ascending order)
+     * @return string - the string representing the entire CSV file, includinge endlines.
+     */
+    public function fetchCSV($includeHeaders=true, $oderByArray = array())
+    {        
+        $resultString = "";
+        $orderByString = "";
+        
+        if (count($oderByArray) > 0)
+        {
+            $orderByString = "ORDER BY ";
+        
+            foreach ($oderByArray as $column_name)
+            {
+                $orderByString .= $column_name  . " ASC, ";
+            }
+            
+            # Remove the excess comma and space.
+            $orderByString = substr($orderByString, 0, -2);
+        }
+        
+        $query = "SELECT * FROM `" . $this->m_tableName . "` " . $orderByString;
+        $result = $this->query($query);
+        
+        if ($result === FALSE)
+        {
+            throw new Exception("Failed to fetch content of table: " . $this->m_tableName);
+        }
+        
+        $isFirstLine = true;
+        
+        while (($row = $result->fetch_assoc()) !== null)
+        {
+            if ($isFirstLine && $includeHeaders)
+            {
+                $titles = array_keys($row);
+                
+                foreach ($titles as $index => $title)
+                {
+                    $titles[$index] = '"' . $title . '"';
+                }
+                
+                $resultString .= implode(",", $titles) . PHP_EOL;
+                $isFirstLine = false;
+            }
+            
+            foreach ($row as $column => $value)
+            {
+                if (!is_numeric($value))
+                {
+                    $row[$column] = '"' . $value . '"';
+                }
+            }
+            
+            $resultString .= implode(",", $row) . PHP_EOL;
+        }
+        
+        return $resultString;
+    }
 }
 
